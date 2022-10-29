@@ -12,6 +12,22 @@ export default function homePage() {
     logo.innerHTML = "To Do<br>List";
     sidebar.appendChild(logo);
 
+
+    let hideContainer = document.createElement('div');
+    hideContainer.classList.add("hide-container");
+    let hideOpt = document.createElement('span');
+    hideOpt.classList.add("material-symbols-outlined")
+    hideOpt.innerHTML = "check_box_outline_blank";
+    hideOpt.addEventListener('click', hideCompleted)
+    let hideText = document.createElement('text');
+    hideText.innerHTML = "Hide completed tasks"
+
+    hideContainer.appendChild(hideOpt)
+    hideContainer.appendChild(hideText)
+
+
+    sidebar.appendChild(hideContainer);
+
     let container = document.createElement('div');
     container.classList.add("container");
     let addContainer = document.createElement('div');
@@ -26,6 +42,7 @@ export default function homePage() {
     })
 
     addContainer.appendChild(add);
+    
 
 
     let footer = document.createElement('div');
@@ -38,4 +55,27 @@ export default function homePage() {
     page.appendChild(footer);
 
     return page;
+
+    function hideCompleted() {
+        var todos = document.querySelectorAll(".todo")
+        console.log(todos)
+        if (hideOpt.innerHTML == "check_box_outline_blank") {
+            hideOpt.innerHTML = "check_box";
+            todos.forEach(todo => {
+                console.log(todo.classList.contains("complete"))
+                if (todo.classList.contains("complete")) {
+                    todo.style.display = "none";
+                }
+            })
+        } else {
+            hideOpt.innerHTML = "check_box_outline_blank";
+            todos.forEach(todo => {
+                if (todo.classList.contains("complete")) {
+                    todo.style.display = "grid";
+                }
+            })
+        }
+
+
+    }     
 }

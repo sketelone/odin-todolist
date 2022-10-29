@@ -17,4 +17,5 @@ function Todo(title, dueDate, priority, notes, project) {
     this.priority = priority;
     this.notes = notes;
     this.project = project;
+    this.status = false;
 }

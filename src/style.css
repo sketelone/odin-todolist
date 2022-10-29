@@ -47,7 +47,6 @@ h1 {
     display: grid;
     align-items: center;
     gap: 10px;
-    grid-template-columns: 60px 1fr;
     background-color: rgb(241, 233, 241);
     padding: 20px;
     text-align:left;
@@ -59,7 +58,7 @@ h1 {
 
 .todo {
     display: grid;
-    grid-template-columns: 50px 1fr 200px;
+    grid-template-columns: 60px 50px 1fr 200px;
     align-items: center;
     background-color: rgb(255, 248, 255);
     border-radius: 6px;
