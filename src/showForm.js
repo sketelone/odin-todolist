@@ -4,12 +4,17 @@ export default function showForm (){
     let form = document.createElement('form');
     form.classList.add("form-popup");
 
-    //use a dictionary
-    // let items = ["title", "description", "dueDate", "priority"];
+    let close = document.createElement('button');
+    close.innerHTML = "&times;";
+    close.id = "close"
+    close.addEventListener('click', closeForm);
+
+    form.appendChild(close);
+
     let items = [
         ["title","Do:", "text", true],
         ["dueDate", "By:", "date", true],
-        ["priority", "High Priority", "checkbox", false],
+        ["priority", "High Priority?", "checkbox", false],
         ["notes", "Notes", "text", false]
     ]
 
@@ -44,5 +49,9 @@ export default function showForm (){
     form.appendChild(submit);
 
     return form;
+}
+
+function closeForm() {
+    document.querySelector(".form-popup").style.display = "none";
 }
 

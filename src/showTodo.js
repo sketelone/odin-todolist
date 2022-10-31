@@ -28,8 +28,9 @@ export default function showTodo(todo, i) {
 
     let itemTitle = document.createElement('div');
     itemTitle.innerHTML = todo.title;
+
     let itemDate = document.createElement('div');
-    itemDate.innerHTML = todo.dueDate;
+    itemDate.innerHTML = "due " + todo.dueDate;
     itemDate.classList.add("item-date");
 
     if (todo.status) {

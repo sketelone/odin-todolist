@@ -38,12 +38,12 @@ export default function homePage() {
 
     add.addEventListener('click', function (e) {
         console.log("show form")
-        document.querySelector(".form-popup").style.display = "block";
+        document.querySelector(".form-popup").style.display = "grid";
     })
 
     addContainer.appendChild(add);
     
-
+ 
 
     let footer = document.createElement('div');
     footer.classList.add("footer");
