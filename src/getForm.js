@@ -13,11 +13,12 @@ export default function getForm() {
     const myProjects = PROJECT_LIBRARY;
 
 
-    //when user submits form, add book to the library
+    //when user submits form, add to do item to current project
     submit.addEventListener('click', function(event) {
         event.preventDefault();
         var formValid = true;
         var project;
+        //validate form
         inputs.forEach(input => {
             // console.log(input, input.validity)
             if (validate(input) == false) {
@@ -25,6 +26,7 @@ export default function getForm() {
                 formValid = false;
             }
         }) 
+        //if form is valid, add to do item to current project
         if (formValid == true) {
             myProjects.forEach(proj => {
                 if (proj.name == currentProject.textContent) {

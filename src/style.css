@@ -37,8 +37,10 @@ h1 {
 }
 
 .sidebar {
+    grid-template-rows: 200px 1fr 100px;
     display: grid;
-    padding: 30px;
+    justify-items: center;
+    padding: 50px;
     grid-row: 1 / 4;
     background-color:  rgb(145, 158, 137);
 }
@@ -176,5 +178,19 @@ span.material-symbols-outlined {
 .hide-container span.material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
     font-size: 24px;
-    justify-self: end;
 }
+
+ul {
+    padding: 20px;
+    justify-self: start;
+    list-style:none;
+}
+
+ul button {
+    width: 200px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    text-align: left;
+}
+

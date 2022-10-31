@@ -11,9 +11,6 @@ var page = homePage();
 display(document.body, page);
 
 var header = document.querySelector('.header');
-var sidebar = document.querySelector('.sidebar');
-var container = document.querySelector('.container');
-var footer = document.querySelector('.footer');
 
 //show current project header, add logic for changing header
 var project = PROJECT_LIBRARY[0];
