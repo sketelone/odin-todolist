@@ -1,4 +1,3 @@
-import display from './display';
 import homePage from './homePage';
 import showForm from './showForm';
 import './style.css';
@@ -8,21 +7,27 @@ import { PROJECT_LIBRARY } from './projectLibrary';
 
 
 var page = homePage();
-display(document.body, page);
+document.body.appendChild(page)
 
 var header = document.querySelector('.header');
 
-//show current project header, add logic for changing header
+//show current project header
 var project = PROJECT_LIBRARY[0];
 var heading = document.createElement('h1');
 heading.id = "current-project"
-// console.log(project, heading)
 heading.innerText = project.name;
-display(header, heading)
+header.appendChild(heading)
+
+heading.addEventListener('click', function(e) {
+    heading.style.display = "none";
+    let rename = document.createElement('input');
+    header.appendChild()
+})
+
 
 //show form
 var form = showForm();
-display(document.body, form)
+document.body.appendChild(form);
 getForm();
 
 

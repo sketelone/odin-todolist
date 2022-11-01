@@ -55,16 +55,16 @@ function getNavbar() {
 
     }
     console.log(i)
-    list.push("Add New");
+    list.push("+");
     arrayToUl(projectNav, list);
 
     var buttons = projectNav.querySelectorAll('button');
 
     buttons.forEach(button => {
             button.addEventListener('click', function(e) {
-                if (button.innerHTML == "Add New") {
+                if (button.innerHTML == "+") {
                     console.log("Add new project" + i)
-                    var newProject = addProject("New Project " + (i-1));
+                    var newProject = addProject("New Project " + (i));
                     button.setAttribute('aria-selected', true);
                     var heading = document.querySelector('#current-project')
                     heading.innerHTML = newProject.name;
