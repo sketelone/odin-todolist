@@ -35,7 +35,7 @@ export default function newProjForm() {
     })
     
     let submit = document.createElement('button');
-    submit.innerHTML = "OK";
+    submit.innerHTML = "ADD";
     submit.type = "submit";
     submit.id = "submit"
   
@@ -53,17 +53,19 @@ export default function newProjForm() {
         var heading = document.querySelector('#current-project')
         heading.innerHTML = newProject.name;
         showProject(newProject);
+
         let navContainer = document.querySelector('.nav-container')
-        console.log(navContainer)
         navContainer.removeChild(navContainer.firstChild)
         let projectNav = getNavbar();
         navContainer.appendChild(projectNav);
+
         form.reset();
         console.log("close form")
         document.querySelector(".proj-form-popup").style.display = "none";
     })
 
     form.appendChild(submit);
+    
     return form;
 }
 

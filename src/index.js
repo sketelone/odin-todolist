@@ -24,11 +24,3 @@ var form = showForm();
 document.body.appendChild(form);
 getForm();
 
-//show form
-var form = newProjForm();
-document.body.appendChild(form);
-getForm();
-
-
-
-

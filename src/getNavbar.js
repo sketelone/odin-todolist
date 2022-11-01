@@ -1,8 +1,7 @@
 import arrayToUl from './arrayToUl';
 import switchProject from './switchProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
-import addProject from './addProject';
-import showProject from './showProject';
+import newProjForm from './newProjForm';
 
 //function to get project navbar
 export default function getNavbar() {
@@ -33,20 +32,9 @@ export default function getNavbar() {
                     console.log("Add new project" + i)
                     //pop up form asking for new project name
                     console.log("show new project form")
+                    var form = newProjForm();
+                    document.body.appendChild(form);
                     document.querySelector(".proj-form-popup").style.display = "grid";
-                    // var name = document.getElementById('name').value;
-                    // if (name != "") {
-                    //     var newProject = addProject("name")
-                    // } else {
-                    //     var newProject = addProject("New Project " + (i));
-                    // }
-                    // button.setAttribute('aria-selected', true);
-                    // var heading = document.querySelector('#current-project')
-                    // heading.innerHTML = newProject.name;
-                    // showProject(newProject);
-                    // projectContainer.removeChild(projectNav)
-                    // projectNav = getNavbar();
-                    // projectContainer.appendChild(projectNav);
                 } else {
                     switchProject(e);
                 }
