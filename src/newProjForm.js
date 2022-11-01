@@ -38,15 +38,18 @@ export default function newProjForm() {
     submit.innerHTML = "ADD";
     submit.type = "submit";
     submit.id = "submit"
+
+    let i = 1;
   
     submit.addEventListener('click', function(event) {
         event.preventDefault();
         var name = document.getElementById('name');
-
+        
         if (name.value != "") {
             var newProject = addProject(name.value)
         } else {
-            var newProject = addProject("New Project " + (i));
+            var newProject = addProject("New Project " + i);
+            i++
         }
         var newButton = document.querySelector('[aria-label="+"]');
         newButton.setAttribute('aria-selected', true);
@@ -65,7 +68,7 @@ export default function newProjForm() {
     })
 
     form.appendChild(submit);
-    
+
     return form;
 }
 
