@@ -116,7 +116,7 @@ button[aria-label="+"] {
 }
 
 
-.form-popup {
+.form-popup, .proj-form-popup {
     display: none;
     position: fixed;
     top: 150px;

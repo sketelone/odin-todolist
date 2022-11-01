@@ -1,8 +1,4 @@
-import arrayToUl from './arrayToUl';
-import switchProject from './switchProject';
-import { PROJECT_LIBRARY } from './projectLibrary';
-import addProject from './addProject';
-import showProject from './showProject';
+import getNavbar from "./getNavbar";
 
 export default function getSidebar() {
     let sidebar = document.createElement('div');
@@ -34,53 +30,6 @@ export default function getSidebar() {
     sidebar.appendChild(hideContainer);
 
     return sidebar;
-}
-
-
-//function to get project navbar
-function getNavbar() {
-    let projectContainer = document.createElement('div');
-    projectContainer.classList.add("project-container");
-    let projectNav = document.createElement('ul');
-    projectNav.classList.add("project-nav");
-
-    if (projectContainer.firstChild) {
-        projectContainer.removeChild(projectContainer.firstChild)
-    }
-
-    let list = [];
-    console.log(PROJECT_LIBRARY)
-    for (var i=0; i<PROJECT_LIBRARY.length; i++) {
-        list[i] = PROJECT_LIBRARY[i].name;
-
-    }
-    console.log(i)
-    list.push("+");
-    arrayToUl(projectNav, list);
-
-    var buttons = projectNav.querySelectorAll('button');
-
-    buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (button.innerHTML == "+") {
-                    console.log("Add new project" + i)
-                    var newProject = addProject("New Project " + (i));
-                    button.setAttribute('aria-selected', true);
-                    var heading = document.querySelector('#current-project')
-                    heading.innerHTML = newProject.name;
-                    showProject(newProject);
-                    projectContainer.removeChild(projectNav)
-                    projectNav = getNavbar();
-                    projectContainer.appendChild(projectNav);
-                } else {
-                    switchProject(e);
-                }
-            })
-    })
-    
-    projectContainer.appendChild(projectNav);
-
-    return projectContainer;
 }
 
 //function to hide commpleted to do list items

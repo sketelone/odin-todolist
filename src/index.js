@@ -4,6 +4,7 @@ import './style.css';
 import 'material-symbols';
 import getForm from './getForm';
 import { PROJECT_LIBRARY } from './projectLibrary';
+import newProjForm from './newProjForm';
 
 
 var page = homePage();
@@ -18,15 +19,13 @@ heading.id = "current-project"
 heading.innerText = project.name;
 header.appendChild(heading)
 
-heading.addEventListener('click', function(e) {
-    heading.style.display = "none";
-    let rename = document.createElement('input');
-    header.appendChild()
-})
-
-
 //show form
 var form = showForm();
+document.body.appendChild(form);
+getForm();
+
+//show form
+var form = newProjForm();
 document.body.appendChild(form);
 getForm();
 
