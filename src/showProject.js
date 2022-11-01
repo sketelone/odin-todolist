@@ -6,7 +6,7 @@ export default function showProject(project) {
     console.log("show project")
 
     const container = document.querySelector(".container");
-    var i = 1;
+    var i = 0;
     //remove previous to do list
     while (container.firstChild) {
         container.removeChild(container.firstChild)

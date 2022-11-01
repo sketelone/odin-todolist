@@ -1,5 +1,6 @@
 
 import 'material-symbols';
+import removeTodo from './removeTodo';
 
 export default function showTodo(todo, i) {
     console.log("show todo")
@@ -7,7 +8,8 @@ export default function showTodo(todo, i) {
     console.log(container)
 
     let item = document.createElement('div');
-    item.classList.add("todo-"+i, "todo");
+    item.classList.add("todo");
+    item.id = i;
 
     let checkbox = document.createElement('span');
     checkbox.classList.add("material-symbols-outlined")
@@ -33,6 +35,11 @@ export default function showTodo(todo, i) {
     itemDate.innerHTML = "due " + todo.dueDate;
     itemDate.classList.add("item-date");
 
+    let del = document.createElement('button')
+    del.innerHTML = "&times;";
+    del.id = "delete";
+    del.addEventListener('click', hideTodo);
+
     if (todo.status) {
         toggleCompleted();
     }
@@ -41,6 +48,7 @@ export default function showTodo(todo, i) {
     item.appendChild(itemPriority);
     item.appendChild(itemTitle);
     item.appendChild(itemDate);
+    item.appendChild(del);
 
     container.appendChild(item);
 
@@ -75,6 +83,15 @@ export default function showTodo(todo, i) {
             item.classList.remove("complete")
             setPriority();
         }
+    }
+
+    function hideTodo(e) {
+        //hide to do item
+        var currentTodo = e.target.parentElement;
+        console.log(currentTodo)
+        currentTodo.style.display = "none";
+        //remove to do item from to do list 
+        removeTodo(currentTodo.id)    
     }
 }
 
