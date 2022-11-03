@@ -1,10 +1,10 @@
-import homePage from './homePage';
-import showForm from './showForm';
 import './style.css';
 import 'material-symbols';
-import getForm from './getForm';
 import { PROJECT_LIBRARY } from './projectLibrary';
-import newProjForm from './newProjForm';
+import homePage from './homePage';
+import getForm from './getForm';
+
+import getProjForm from './getProjForm';
 
 
 var page = homePage();
@@ -19,8 +19,6 @@ heading.id = "current-project"
 heading.innerText = project.name;
 header.appendChild(heading)
 
-//show form
-var form = showForm();
-document.body.appendChild(form);
 getForm();
+getProjForm();
 

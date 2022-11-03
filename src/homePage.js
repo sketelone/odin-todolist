@@ -1,4 +1,5 @@
 import getSidebar from './getSidebar';
+import showForm from './showForm';
 
 //module to create home page elements and layout
 export default function homePage() {
@@ -32,12 +33,28 @@ export default function homePage() {
     let footer = document.createElement('div');
     footer.classList.add("footer");
 
+    //add forms
+    let items = [
+        ["title","Do:", "text", true],
+        ["dueDate", "By:", "date", true],
+        ["priority", "High Priority?", "checkbox", false],
+        ["notes", "Notes", "text", false]
+    ]
+    var formTodo = showForm(items, "form-todo");
+
+    items = [
+        ["name","Project Name:", "text", false]
+    ]
+    var formProj = showForm(items, "form-proj");
+
     //append all elements to page
     page.appendChild(header);
     page.appendChild(sidebar);
     page.appendChild(container);
     page.appendChild(addContainer);
     page.appendChild(footer);
+    page.appendChild(formTodo);
+    page.appendChild(formProj);
 
     return page;
 }

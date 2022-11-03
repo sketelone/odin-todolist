@@ -1,22 +1,16 @@
 import 'date-fns'
 
-export default function showForm (){
+export default function showForm (items, className){
     let form = document.createElement('form');
-    form.classList.add("form-popup");
+    form.classList.add(className, "form-popup");
 
     let close = document.createElement('button');
     close.innerHTML = "&times;";
-    close.id = "close"
+    close.type = "button";
+    close.id = "close";
     close.addEventListener('click', closeForm);
 
     form.appendChild(close);
-
-    let items = [
-        ["title","Do:", "text", true],
-        ["dueDate", "By:", "date", true],
-        ["priority", "High Priority?", "checkbox", false],
-        ["notes", "Notes", "text", false]
-    ]
 
     items.forEach (item => {
         var label = document.createElement('label');
@@ -49,9 +43,11 @@ export default function showForm (){
     form.appendChild(submit);
 
     return form;
+
+    function closeForm() {
+        document.getElementsByClassName(className)[0].style.display = "none";
+    }
 }
 
-function closeForm() {
-    document.querySelector(".form-popup").style.display = "none";
-}
+
 

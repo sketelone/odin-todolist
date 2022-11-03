@@ -1,7 +1,7 @@
 import arrayToUl from './arrayToUl';
 import switchProject from './switchProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
-import newProjForm from './newProjForm';
+import getProjForm from "./getProjForm";
 
 //function to get project navbar
 export default function getNavbar() {
@@ -29,12 +29,8 @@ export default function getNavbar() {
     buttons.forEach(button => {
             button.addEventListener('click', function(e) {
                 if (button.innerHTML == "+") {
-                    console.log("Add new project" + i)
                     //pop up form asking for new project name
-                    console.log("show new project form")
-                    var form = newProjForm();
-                    document.body.appendChild(form);
-                    document.querySelector(".proj-form-popup").style.display = "grid";
+                    document.querySelector(".form-proj").style.display = "grid";
                 } else {
                     switchProject(e);
                 }
