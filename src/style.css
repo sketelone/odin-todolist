@@ -69,12 +69,22 @@ h1 {
 
 .todo {
     display: grid;
-    grid-template-columns: 60px 50px 1fr 200px 60px;
+    grid-template-columns: 60px 50px 1fr 150px 60px;
     align-items: center;
     background-color: rgb(255, 248, 255);
     border-radius: 6px;
     padding: 20px;
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+
+.item-notes {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.item-date {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 button {
@@ -150,11 +160,6 @@ input {
     border-radius: 3px;
     height:20px;
     width:225px;
-}
-
-input#notes {
-    height: 60px;
-    text-align: start;
 }
 
 .error {

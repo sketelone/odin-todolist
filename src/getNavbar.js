@@ -1,7 +1,6 @@
 import arrayToUl from './arrayToUl';
 import switchProject from './switchProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
-import getProjForm from "./getProjForm";
 
 //function to get project navbar
 export default function getNavbar() {

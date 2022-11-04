@@ -1,3 +1,4 @@
+import { isPast, parseISO } from "date-fns";
 import addTodo from "./addTodo";
 import {PROJECT_LIBRARY} from "./projectLibrary";
 
@@ -9,9 +10,18 @@ export default function getForm() {
     const notes = document.getElementById('notes');
     const currentProject = document.getElementById("current-project");
     const submit = document.getElementById('submit');
-    const inputs = document.querySelectorAll("input[type=text]");
+    const inputs = document.querySelectorAll("input");
     const myProjects = PROJECT_LIBRARY;
 
+    //add custom date validation
+    dateValidation(dueDate);
+
+    //when user inputs anything, validate input
+    inputs.forEach(input => {
+        input.addEventListener('input', (event) => {
+            validate(input);
+        })
+    })
 
     //when user submits form, add to do item to current project
     submit.addEventListener('click', function(event) {
@@ -45,13 +55,19 @@ export default function getForm() {
 
 /*VALIDATION*/
 //validate date (ensure it's ahead of today)
-
-//when user inputs anything, validate input
-// inputs.forEach(input => {
-//     input.addEventListener('input', (event) => {
-//         validate(input);
-//     })
-// })
+function dateValidation(dueDate) {
+    dueDate.addEventListener('input', (e) => {
+        let date = parseISO(dueDate.value);
+        dueDate.setCustomValidity("");
+        if (dueDate.validity.valueMissing) {
+            dueDate.setCustomvalidity("Please select a due date.");
+        } else if (isPast(date)) {
+            dueDate.setCustomValidity("Date must be in the future.");
+        } else {
+            dueDate.setCustomValidity("");
+        }
+    })
+}
 
 //show error if input is invalid 
 function validate(i) {

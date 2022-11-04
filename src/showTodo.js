@@ -1,11 +1,11 @@
 
+import { format, parseISO } from 'date-fns';
 import 'material-symbols';
 import removeTodo from './removeTodo';
 
 export default function showTodo(todo, i) {
     console.log("show todo")
     const container = document.querySelector(".container");
-    console.log(container)
 
     let item = document.createElement('div');
     item.classList.add("todo");
@@ -28,11 +28,18 @@ export default function showTodo(todo, i) {
         }
     })
 
+    let itemText = document.createElement('div');
+    itemText.classList.add("item-text");
     let itemTitle = document.createElement('div');
     itemTitle.innerHTML = todo.title;
+    let itemNotes = document.createElement('div');
+    itemNotes.classList.add("item-notes");
+    itemNotes.innerHTML = todo.notes;
+    itemText.appendChild(itemTitle);
+    itemText.appendChild(itemNotes);
 
     let itemDate = document.createElement('div');
-    itemDate.innerHTML = "due " + todo.dueDate;
+    itemDate.innerHTML = "due " + format(parseISO(todo.dueDate), 'MM/dd/yy') ;
     itemDate.classList.add("item-date");
 
     let del = document.createElement('button')
@@ -44,9 +51,16 @@ export default function showTodo(todo, i) {
         toggleCompleted();
     }
 
+    var hideOpt = document.getElementById("hide-opt");
+    if(todo.status && hideOpt.innerHTML == "check_box") {
+        item.style.display = "none";
+    }
+
+    console.log(todo)
+
     item.appendChild(checkbox)
     item.appendChild(itemPriority);
-    item.appendChild(itemTitle);
+    item.appendChild(itemText);
     item.appendChild(itemDate);
     item.appendChild(del);
 
@@ -67,7 +81,7 @@ export default function showTodo(todo, i) {
     function toggleCompleted() {
         if (checkbox.innerHTML == "check_box_outline_blank") {
             checkbox.innerHTML = "check_box";
-            itemTitle.style.textDecoration = "line-through";
+            itemText.style.textDecoration = "line-through";
             itemDate.style.textDecoration = "line-through";
             item.style.color = "gray";
             itemPriority.innerHTML = "";
@@ -76,12 +90,16 @@ export default function showTodo(todo, i) {
 
         } else {
             checkbox.innerHTML = "check_box_outline_blank";
-            itemTitle.style.textDecoration = "none";
+            itemText.style.textDecoration = "none";
             itemDate.style.textDecoration = "none";
             item.style.color = "black";
             todo.status = false;
             item.classList.remove("complete")
             setPriority();
+        }
+        var hideOpt = document.getElementById("hide-opt");
+        if(hideOpt.innerHTML == "check_box") {
+            item.style.display = "none";
         }
     }
 

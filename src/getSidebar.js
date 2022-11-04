@@ -18,11 +18,12 @@ export default function getSidebar() {
     let hideContainer = document.createElement('div');
     hideContainer.classList.add("hide-container");
     let hideOpt = document.createElement('span');
-    hideOpt.classList.add("material-symbols-outlined")
+    hideOpt.classList.add("material-symbols-outlined");
+    hideOpt.id = "hide-opt";
     hideOpt.innerHTML = "check_box_outline_blank";
-    hideOpt.addEventListener('click', hideCompleted)
+    hideOpt.addEventListener('click', hideCompleted);
     let hideText = document.createElement('text');
-    hideText.innerHTML = "Hide completed tasks"
+    hideText.innerHTML = "Hide completed tasks";
 
     hideContainer.appendChild(hideOpt)
     hideContainer.appendChild(hideText)
@@ -30,26 +31,27 @@ export default function getSidebar() {
     sidebar.appendChild(hideContainer);
 
     return sidebar;
+
+    //function to hide commpleted to do list items
+    function hideCompleted() {
+        var todos = document.querySelectorAll(".todo")
+        console.log(todos)
+        if (hideOpt.innerHTML == "check_box_outline_blank") {
+            hideOpt.innerHTML = "check_box";
+            todos.forEach(todo => {
+                console.log(todo.classList.contains("complete"))
+                if (todo.classList.contains("complete")) {
+                    todo.style.display = "none";
+                }
+            })
+        } else {
+            hideOpt.innerHTML = "check_box_outline_blank";
+            todos.forEach(todo => {
+                if (todo.classList.contains("complete")) {
+                    todo.style.display = "grid";
+                }
+            })
+        }
+    }     
 }
 
-//function to hide commpleted to do list items
-function hideCompleted() {
-    var todos = document.querySelectorAll(".todo")
-    console.log(todos)
-    if (hideOpt.innerHTML == "check_box_outline_blank") {
-        hideOpt.innerHTML = "check_box";
-        todos.forEach(todo => {
-            console.log(todo.classList.contains("complete"))
-            if (todo.classList.contains("complete")) {
-                todo.style.display = "none";
-            }
-        })
-    } else {
-        hideOpt.innerHTML = "check_box_outline_blank";
-        todos.forEach(todo => {
-            if (todo.classList.contains("complete")) {
-                todo.style.display = "grid";
-            }
-        })
-    }
-}     

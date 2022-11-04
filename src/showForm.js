@@ -46,6 +46,7 @@ export default function showForm (items, className){
 
     function closeForm() {
         document.getElementsByClassName(className)[0].style.display = "none";
+        document.getElementsByClassName(className)[0].reset();
     }
 }
 
