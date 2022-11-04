@@ -32,7 +32,7 @@ export default function getForm() {
         inputs.forEach(input => {
             // console.log(input, input.validity)
             if (validate(input) == false) {
-                console.log("nosubmit")
+                // console.log("nosubmit")
                 formValid = false;
             }
         }) 
@@ -46,7 +46,7 @@ export default function getForm() {
             addTodo(title.value, dueDate.value, priority.checked, notes.value, project);
             // console.log(project)
             form.reset();
-            console.log("close form")
+            // console.log("close form")
             document.querySelector(".form-popup").style.display = "none";
         } 
     })

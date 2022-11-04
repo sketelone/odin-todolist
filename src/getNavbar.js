@@ -14,12 +14,12 @@ export default function getNavbar() {
     }
 
     let list = [];
-    console.log(PROJECT_LIBRARY)
+    // console.log(PROJECT_LIBRARY)
     for (var i=0; i<PROJECT_LIBRARY.length; i++) {
         list[i] = PROJECT_LIBRARY[i].name;
 
     }
-    console.log(i)
+    // console.log(i)
     list.push("+");
     arrayToUl(projectNav, list);
 

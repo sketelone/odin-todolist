@@ -4,7 +4,7 @@ import 'material-symbols';
 import removeTodo from './removeTodo';
 
 export default function showTodo(todo, i) {
-    console.log("show todo")
+    // console.log("show todo")
     const container = document.querySelector(".container");
 
     let item = document.createElement('div');
@@ -56,7 +56,7 @@ export default function showTodo(todo, i) {
         item.style.display = "none";
     }
 
-    console.log(todo)
+    // console.log(todo)
 
     item.appendChild(checkbox)
     item.appendChild(itemPriority);
@@ -106,7 +106,7 @@ export default function showTodo(todo, i) {
     function hideTodo(e) {
         //hide to do item
         var currentTodo = e.target.parentElement;
-        console.log(currentTodo)
+        // console.log(currentTodo)
         currentTodo.style.display = "none";
         //remove to do item from to do list 
         removeTodo(currentTodo.id)    

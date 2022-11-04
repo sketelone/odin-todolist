@@ -3,7 +3,7 @@ import showTodo from "./showTodo"
 
 //shows to do list for current project
 export default function showProject(project) {
-    console.log("show project")
+    // console.log("show project")
 
     const container = document.querySelector(".container");
     var i = 0;

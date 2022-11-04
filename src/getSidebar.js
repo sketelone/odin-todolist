@@ -35,11 +35,11 @@ export default function getSidebar() {
     //function to hide commpleted to do list items
     function hideCompleted() {
         var todos = document.querySelectorAll(".todo")
-        console.log(todos)
+        // console.log(todos)
         if (hideOpt.innerHTML == "check_box_outline_blank") {
             hideOpt.innerHTML = "check_box";
             todos.forEach(todo => {
-                console.log(todo.classList.contains("complete"))
+                // console.log(todo.classList.contains("complete"))
                 if (todo.classList.contains("complete")) {
                     todo.style.display = "none";
                 }

@@ -29,7 +29,7 @@ export default function getProjForm() {
         let projectNav = getNavbar();
         navContainer.appendChild(projectNav);
         form.reset();
-        console.log("close form")
+        // console.log("close form")
         document.querySelector(".form-proj").style.display = "none";
 
     })

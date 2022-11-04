@@ -1,5 +1,6 @@
 import getSidebar from './getSidebar';
 import showForm from './showForm';
+import gitIcon from './GitHub-Mark-32px.png';
 
 //module to create home page elements and layout
 export default function homePage() {
@@ -23,7 +24,7 @@ export default function homePage() {
     add.innerHTML = "add_circle";
 
     add.addEventListener('click', function (e) {
-        console.log("show form")
+        // console.log("show form")
         document.querySelector(".form-popup").style.display = "grid";
     })
 
@@ -32,6 +33,18 @@ export default function homePage() {
     //add footer
     let footer = document.createElement('div');
     footer.classList.add("footer");
+    let para = document.createElement('p');
+    para.innerHTML = "Copyright &#169; 2022 sketelone";
+    let link = document.createElement('a');
+    let icon = new Image();
+    icon.src = gitIcon;
+    link.href = "https://github.com/sketelone";
+    link.appendChild(icon)
+
+    footer.appendChild(link);
+    footer.appendChild(para);
+    
+
 
     //add forms
     let items = [

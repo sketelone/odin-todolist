@@ -1,7 +1,7 @@
 import { PROJECT_LIBRARY } from './projectLibrary';
 
 export default function removeTodo(todo) {
-    console.log("remove todo")
+    // console.log("remove todo")
     const myProjects = PROJECT_LIBRARY;
     const currentProject = document.getElementById('current-project').innerHTML;
     var project;
@@ -17,6 +17,6 @@ export default function removeTodo(todo) {
     if (index > -1) {
         var temp = project.todos.splice(index, 1)
     }
-    console.log(temp)
+    // console.log(temp)
 
 }

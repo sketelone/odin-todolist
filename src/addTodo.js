@@ -2,7 +2,7 @@ import showProject from "./showProject";
 
 //read info from form, construct a new book and add it to the library
 export default function addTodo(title, dueDate, priority, notes, project) {
-    console.log("add todo!")
+    // console.log("add todo!")
     var newTodo = new Todo(title, dueDate, priority, notes, project);
     var currentProject = newTodo.project.todos;
     currentProject.push(newTodo);
