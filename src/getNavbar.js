@@ -1,4 +1,5 @@
 import arrayToUl from './arrayToUl';
+import showForm from './showForm';
 import switchProject from './switchProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
 
@@ -35,6 +36,12 @@ export default function getNavbar() {
                 }
             })
     })
+
+    let items = [
+        ["name","Project Name:", "text", false]
+    ]
+    var formProj = showForm(items, "form-proj");
+    navContainer.appendChild(formProj);
     
     navContainer.appendChild(projectNav);
 

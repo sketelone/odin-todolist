@@ -5,7 +5,7 @@ import removeTodo from './removeTodo';
 
 export default function showTodo(todo, i) {
     // console.log("show todo")
-    const container = document.querySelector(".container");
+    const todoContainer = document.querySelector(".todo-container");
 
     let item = document.createElement('div');
     item.classList.add("todo");
@@ -32,11 +32,10 @@ export default function showTodo(todo, i) {
     itemText.classList.add("item-text");
     let itemTitle = document.createElement('div');
     itemTitle.innerHTML = todo.title;
-    let itemNotes = document.createElement('div');
-    itemNotes.classList.add("item-notes");
-    itemNotes.innerHTML = todo.notes;
     itemText.appendChild(itemTitle);
-    itemText.appendChild(itemNotes);
+
+    let notesVisible = false;
+    itemText.addEventListener('click', expandTodo);
 
     let itemDate = document.createElement('div');
     itemDate.innerHTML = "due " + format(parseISO(todo.dueDate), 'MM/dd/yy') ;
@@ -64,7 +63,7 @@ export default function showTodo(todo, i) {
     item.appendChild(itemDate);
     item.appendChild(del);
 
-    container.appendChild(item);
+    todoContainer.appendChild(item);
 
     function setPriority() {
         if (todo.priority == true) {
@@ -110,6 +109,22 @@ export default function showTodo(todo, i) {
         currentTodo.style.display = "none";
         //remove to do item from to do list 
         removeTodo(currentTodo.id)    
+    }
+
+
+    //when Todo is clicked, show notes
+    function expandTodo() {
+        if (notesVisible == false) {
+            let itemNotes = document.createElement('div');
+            itemNotes.classList.add("item-notes");
+            itemNotes.innerHTML = todo.notes;
+            itemText.appendChild(itemNotes);
+            notesVisible = true;
+        } else {
+            itemText.removeChild(itemText.lastChild);
+            notesVisible = false;
+        }
+
     }
 }
 

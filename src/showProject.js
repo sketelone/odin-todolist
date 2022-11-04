@@ -5,11 +5,11 @@ import showTodo from "./showTodo"
 export default function showProject(project) {
     // console.log("show project")
 
-    const container = document.querySelector(".container");
+    const todoContainer = document.querySelector(".todo-container");
     var i = 0;
     //remove previous to do list
-    while (container.firstChild) {
-        container.removeChild(container.firstChild)
+    while (todoContainer.firstChild) {
+        todoContainer.removeChild(todoContainer.firstChild)
     }
     //show current to do list
     project.todos.forEach (todo => {
