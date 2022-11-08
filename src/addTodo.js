@@ -1,16 +1,26 @@
-import showProject from "./showProject";
 
-//read info from form, construct a new book and add it to the library
+/**
+ * function to construct new todo and add it to the project
+ * @param {string} title - todo title
+ * @param {string} dueDate - todo due date
+ * @param {string} notes - todo additional notes
+ * @param {Project} project - todo project
+ * @returns {Todo} new todo object
+ */
 export default function addTodo(title, dueDate, notes, project) {
-    // console.log("add todo!")
     var newTodo = new Todo(title, dueDate, notes, project);
-    var currentProject = newTodo.project.todos;
-    currentProject.push(newTodo);
+    project.todos.push(newTodo);
     
-    showProject(project)
     return newTodo;
 }
 
+/**
+ * factory function to construct todo
+ * @param {string} title - todo title
+ * @param {string} dueDate - todo due date
+ * @param {string} notes - todo additional notes
+ * @param {Project} project - todo project
+ */
 function Todo(title, dueDate, notes, project) {
     this.title = title;
     this.dueDate = dueDate;

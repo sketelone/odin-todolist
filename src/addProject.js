@@ -1,20 +1,25 @@
 import {PROJECT_LIBRARY} from "./projectLibrary";
+/**
+ * function to construct new project and add to the library
+ * @param {string} name - project name
+ * @returns {Project} new Project object
+ */
 
 export default function addProject(name) {
-    // console.log('add project!')
+    
     var myProjects = PROJECT_LIBRARY;
-    // console.log(myProjects)
     var newProject = new Project(name)
 
     myProjects.push(newProject);
-    // console.log(myProjects, newProject)
 
     return newProject;
 }
 
+/**
+ * factory function to construct project
+ * @param {string} name - project name 
+ */
 function Project(name) {
     this.name = name;
     this.todos = [];
-
-    // console.log(Project)
 }

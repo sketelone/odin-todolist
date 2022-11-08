@@ -1,17 +1,18 @@
 
 import showTodo from "./showTodo"
 
-//shows to do list for current project
+/**
+ * shows to do list for current project
+ * @param {Project} project - current project
+ */
 export default function showProject(project) {
-    // console.log("show project")
-
     const todoContainer = document.querySelector(".todo-container");
     var i = 0;
-    //remove previous to do list
+    //remove previous todo list
     while (todoContainer.firstChild) {
         todoContainer.removeChild(todoContainer.firstChild)
     }
-    //show current to do list
+    //show current todo list
     project.todos.forEach (todo => {
         showTodo(todo, i);
         i++;

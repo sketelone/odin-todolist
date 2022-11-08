@@ -4,29 +4,28 @@ import addProject from './addProject';
 import showProject from './showProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
 
-//function to get project navbar
+/**
+ * function to create the project navigation bar
+ * @returns {HTMLDivElement} div containing project nav elements
+ */
 export default function getNavbar() {
+    //create  div container
     let navContainer = document.createElement('div');
     navContainer.classList.add("nav-container");
     let projectNav = document.createElement('ul');
     projectNav.classList.add("project-nav");
 
-    if (navContainer.firstChild) {
-        navContainer.removeChild(projectContainer.firstChild)
-    }
-
+    //create and append project nav and add project button
     let list = [];
-    // console.log(PROJECT_LIBRARY)
     for (var i=0; i<PROJECT_LIBRARY.length; i++) {
         list[i] = PROJECT_LIBRARY[i].name;
-
     }
-    // console.log(i)
     list.push("+");
     arrayToUl(projectNav, list);
 
+    //when user selects a project, switch to that project
+    //when user hits add, add new project and switch to it
     var buttons = projectNav.querySelectorAll('button');
-
     buttons.forEach(button => {
             button.addEventListener('click', function(e) {
                 if (button.innerHTML == "+") {
@@ -36,22 +35,26 @@ export default function getNavbar() {
                 }
             })
     })
-    
+
     navContainer.appendChild(projectNav);
 
     return navContainer;
 }
 
+/**
+ * function to construct and show new project
+ * @param {num} i index 
+ */
 function getNewProject(i) {
-    //initalize and show new project, reset project navigation
+    //construct new project
     var newProject = addProject("New Project " + i);
 
-    var newButton = document.querySelector('[aria-label="+"]');
-    newButton.setAttribute('aria-selected', true);
+    //set and show current project
     var heading = document.querySelector('#current-project')
     heading.innerHTML = newProject.name;
     showProject(newProject);
 
+    //update project nav
     let navContainer = document.querySelector('.nav-container')
     navContainer.removeChild(navContainer.firstChild)
     let projectNav = getNavbar();

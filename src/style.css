@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'Mr Bedfort';
-    src: url('./MrBedfort-Regular.ttf') format('truetype')
+    src: url('./assets/MrBedfort-Regular.ttf') format('truetype')
 }
 
 body {
@@ -130,13 +130,6 @@ h1 {
 .form-todo {
     grid-template-columns: 1fr 220px 120px;
 
-}
-
-label {
-    display: none;
-    font-size: 14px;
-    letter-spacing: 0.2em;
-    text-transform:uppercase;
 }
 
 input {
