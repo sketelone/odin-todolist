@@ -16,16 +16,12 @@ export default function pullLibrary() {
         //if something is stored, parse stored info
         if (!(localStorage.length === 0)) {
             var keys = Object.keys(localStorage);
-            // console.log(Object.keys(localStorage))
             keys.sort();
-            // console.log(keys)
             for (var i = 0; i<localStorage.length; i++) {
                 var list = localStorage.getItem(keys[i]).split(";,");
-                // console.log(list)
                 for (var j=0; j<list.length; j++) {
                     list[j] = list[j].replace(";", "");
                 }
-                // console.log(list)
                 if (list.length > 1) {
                     var project = list.shift();
                 } else {
@@ -33,10 +29,8 @@ export default function pullLibrary() {
                     list = [];
                 }
                 var newProject = addProject(project, STORED_LIBRARY);
-                // console.log(newProject)
                 if (list) {
                     list.forEach(todo => {
-                        console.log(todo)
                         var temp = todo.split(",");
                         var newTodo = addTodo(temp[0], temp[1], temp[2], newProject);
                         if (temp[4] == "true") {
@@ -52,17 +46,7 @@ export default function pullLibrary() {
                     })   
                 }
             }
-            // STORED_LIBRARY = STORED_LIBRARY.reverse();
-            // console.log(STORED_LIBRARY, PROJECT_LIBRARY)
             PROJECT_LIBRARY = STORED_LIBRARY;
-            //if stored library matches project library, clear stored, otherwise update
-        //     if (STORED_LIBRARY == PROJECT_LIBRARY) {
-        //         console.log('no need to update')
-        //         localStorage.clear();
-        //     } else {
-        //         console.log('please update')
-        //         PROJECT_LIBRARY = STORED_LIBRARY;
-        //     }
         }
     }
 }
