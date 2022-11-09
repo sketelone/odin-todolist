@@ -24,6 +24,7 @@ body {
 
 .header{
     display: grid;
+    grid-template-columns: auto 100px;
     justify-items: center;
     align-items: center;
     margin: 10px 0px;
@@ -44,6 +45,7 @@ h1 {
     font-size: 72px;
     font-weight: bolder;
     line-height:85%;
+    text-transform: capitalize;
 }
 
 .sidebar {
@@ -82,7 +84,6 @@ h1 {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    /* padding: 10px; */
 }
 
 .add-container {
@@ -147,6 +148,7 @@ input {
     font-family: 'Mr Bedfort', cursive;
     font-size: 72px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .todo-notes {
@@ -155,7 +157,6 @@ input {
 }
 
 .error {
-    /* grid-column: 2 / 3; */
     height: 20px;
     display:block;
     justify-self: center;
@@ -168,7 +169,6 @@ input {
     text-transform: uppercase;
     overflow-wrap: break-word;
     margin-top: 10px;
-    /* margin-left: -10px; */
 }
 
 .notes_error {
@@ -180,13 +180,15 @@ input {
     margin-left:-20px;
 }
 
+.heading_error {
+    width: auto;
+}
+
 .item-date button {
     justify-self: end;
 }
 
 button {
-    height: 40px;
-    width: 40px;
     background: transparent;
     border: none;
     color: black;
@@ -204,8 +206,9 @@ button[aria-label="+"] {
     color: rgb(175, 194, 175);
 }
 
-.header-edit button {
+.header button {
     font-size: 60px;
+    grid-column: 2/3;
 }
 
 #submit, #close {
@@ -217,8 +220,7 @@ span.material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
     font-size: 48px;
     justify-self: start;
-  }
-
+}
 
 .hide-container span.material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
@@ -235,6 +237,7 @@ ul button {
     width: 200px;
     font-size: 24px;
     text-align: left;
+    text-transform: capitalize;
 }
 
 .complete div{

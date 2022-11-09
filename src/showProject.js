@@ -13,8 +13,10 @@ export default function showProject(project) {
         todoContainer.removeChild(todoContainer.firstChild)
     }
     //show current todo list
-    project.todos.forEach (todo => {
-        showTodo(todo, i);
-        i++;
-    })
+    if (project.todos) {
+        project.todos.forEach (todo => {
+            showTodo(todo, i);
+            i++;
+        })    
+    }
 }

@@ -5,7 +5,7 @@ import addTodo from "./addTodo";
  * initialize global constants project library and stored library
  */
 export var PROJECT_LIBRARY = [];
-addProject("General", PROJECT_LIBRARY);
+addProject("general", PROJECT_LIBRARY);
 export var STORED_LIBRARY = [];
 
 /**

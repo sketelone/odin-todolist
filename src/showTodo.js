@@ -79,7 +79,6 @@ export default function showTodo(todo, i) {
     let itemDate = document.createElement('div');
     itemDate.classList.add("item-date");
     let dateText = document.createElement('div');
-    console.log(todo.dueDate, typeof todo.dueDate)
     dateText.innerHTML = "due " + format(parseISO(todo.dueDate), 'MM/dd/yy') ;
     itemDate.appendChild(dateText);
 
@@ -134,7 +133,7 @@ export default function showTodo(todo, i) {
     //create delete button
     let del = document.createElement('button')
     del.innerHTML = "&times;";
-    del.id = "delete";
+    del.id = "delete-todo";
     //when user clicks delete, delete todo
     del.addEventListener('click', delTodo);
 
