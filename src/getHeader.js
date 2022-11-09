@@ -31,7 +31,7 @@ export default function getHeader() {
     
     //allow user to change project name on click
     heading.addEventListener('click', (e) => {
-        var currentProject = heading.innerHTML.toLowerCase();
+        var currentProject = heading.innerHTML;
         myProjects.forEach(proj => {
             if (proj.name == currentProject) {
                 project = proj;
@@ -71,7 +71,7 @@ export default function getHeader() {
                     header.removeChild(header.firstChild);
                 }
                 if (input.value) {
-                    project.name = input.value.toLowerCase();
+                    project.name = input.value;
                 }
                 pushLibrary();
                 heading.innerHTML = project.name;
@@ -96,7 +96,7 @@ export default function getHeader() {
      */
     function delProject() {
         //remove project from library
-        var currentProject = heading.innerHTML.toLowerCase();
+        var currentProject = heading.innerHTML;
         removeProj(currentProject);    
         //show first project in library
         project = PROJECT_LIBRARY[0];
@@ -115,9 +115,9 @@ export default function getHeader() {
      */
     function titleValidate(text) {
         text.setCustomValidity("");
-        var lowercase = text.value.toLowerCase();
+        var lowercase = text.value;
         myProjects.forEach(proj => {
-            if (proj.name == text.value || proj.name == lowercase) {
+            if (proj.name == text.value) {
                 text.setCustomValidity("Please enter a unique project name.");
             }
         })

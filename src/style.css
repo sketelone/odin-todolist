@@ -19,7 +19,7 @@ body {
 .page {
     height: 100vh;
     display: grid;
-    grid-template: 200px auto 1fr 80px / 350px minmax(700px, 1fr);
+    grid-template: minmax(200px, auto) auto 1fr 80px / 350px minmax(700px, 1fr);
 }
 
 .header{
@@ -45,7 +45,6 @@ h1 {
     font-size: 72px;
     font-weight: bolder;
     line-height:85%;
-    text-transform: capitalize;
 }
 
 .sidebar {
@@ -148,7 +147,6 @@ input {
     font-family: 'Mr Bedfort', cursive;
     font-size: 72px;
     text-align: center;
-    text-transform: capitalize;
 }
 
 .todo-notes {
@@ -237,7 +235,6 @@ ul button {
     width: 200px;
     font-size: 24px;
     text-align: left;
-    text-transform: capitalize;
 }
 
 .complete div{

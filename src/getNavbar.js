@@ -19,9 +19,8 @@ export default function getNavbar() {
     //create and append project nav and add project button
     let list = [];
     for (var i=0; i<PROJECT_LIBRARY.length; i++) {
-        list[i] = PROJECT_LIBRARY[i].name.toLowerCase();
+        list[i] = PROJECT_LIBRARY[i].name;
     }
-    list.sort();
     list.push("+");
     arrayToUl(projectNav, list);
 
@@ -49,7 +48,7 @@ export default function getNavbar() {
  */
 function getNewProject(i) {
     //construct new project
-    var newProject = addProject("new project " + i, PROJECT_LIBRARY);
+    var newProject = addProject("New Project " + i, PROJECT_LIBRARY);
     pushLibrary();
 
     //set and show current project

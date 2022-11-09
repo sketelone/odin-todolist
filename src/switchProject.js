@@ -8,12 +8,9 @@ import showProject from './showProject';
 
 export default function switchProject(e) {
     const myProjects = PROJECT_LIBRARY;
-    const currentProject = e.currentTarget.innerHTML.toLowerCase();
+    const currentProject = e.currentTarget.innerHTML;
     const heading = document.querySelector('#current-project')
     var project;
-
-    console.log(currentProject)
-    console.log(PROJECT_LIBRARY)
 
     //get current project
     myProjects.forEach(proj => {
@@ -22,7 +19,6 @@ export default function switchProject(e) {
         }
     })
 
-    console.log(project);
     //set and show current project
     if (heading) {
         heading.innerHTML = currentProject;
