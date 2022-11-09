@@ -21,4 +21,5 @@ export default function removeTodo(todo) {
     if (index > -1) {
         var temp = project.todos.splice(index, 1)
     }
+    pushLibrary();
 }

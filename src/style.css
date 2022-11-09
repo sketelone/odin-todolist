@@ -19,7 +19,7 @@ body {
 .page {
     height: 100vh;
     display: grid;
-    grid-template: 200px auto 1fr 80px / 350px minmax(600px, 1fr);
+    grid-template: 200px auto 1fr 80px / 350px minmax(700px, 1fr);
 }
 
 .header{

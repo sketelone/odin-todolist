@@ -1,6 +1,7 @@
 import 'date-fns'
 import { format, parseISO, isPast } from 'date-fns';
 import 'material-symbols';
+import pushLibrary from './pushLibrary';
 import removeTodo from './removeTodo';
 
 /**
@@ -38,6 +39,7 @@ export default function showTodo(todo, i) {
             todo.priority = true;
             setPriority();
         }
+        pushLibrary();
     })
 
     //create todo text
@@ -66,6 +68,7 @@ export default function showTodo(todo, i) {
             itemText.removeChild(itemText.firstChild);
             if (input.value) {
                 todo.title = input.value;
+                pushLibrary();
             }
             itemTitle.innerHTML = todo.title;
             itemText.appendChild(itemTitle);
@@ -76,6 +79,7 @@ export default function showTodo(todo, i) {
     let itemDate = document.createElement('div');
     itemDate.classList.add("item-date");
     let dateText = document.createElement('div');
+    console.log(todo.dueDate, typeof todo.dueDate)
     dateText.innerHTML = "due " + format(parseISO(todo.dueDate), 'MM/dd/yy') ;
     itemDate.appendChild(dateText);
 
@@ -111,6 +115,7 @@ export default function showTodo(todo, i) {
                     itemDate.removeChild(itemDate.firstChild);
                 }
                 todo.dueDate = input.value;
+                pushLibrary();
                 dateText.innerHTML = "due " + format(parseISO(todo.dueDate), 'MM/dd/yy') ;
                 itemDate.appendChild(dateText);
             } else {
@@ -184,6 +189,7 @@ export default function showTodo(todo, i) {
             todo.status = false;
             item.classList.remove("complete")
         }
+        pushLibrary();
         //if hide completed tasks is selected, hide completed todos
         var hideOpt = document.getElementById("hide-opt");
         if(hideOpt.innerHTML == "check_box") {
@@ -234,6 +240,7 @@ export default function showTodo(todo, i) {
                     item.removeChild(item.lastChild);
                     if (input.value) {
                         todo.notes = input.value;
+                        pushLibrary();
                     }
                     itemNotes.innerHTML = todo.notes;
                     item.appendChild(itemNotes);

@@ -1,13 +1,13 @@
-import {PROJECT_LIBRARY} from "./projectLibrary";
 /**
  * function to construct new project and add to the library
  * @param {string} name - project name
+ * @param {list} library - library containing project
  * @returns {Project} new Project object
  */
 
-export default function addProject(name) {
+export default function addProject(name, library) {
     
-    var myProjects = PROJECT_LIBRARY;
+    var myProjects = library;
     var newProject = new Project(name)
 
     myProjects.push(newProject);

@@ -2,13 +2,15 @@ import getSidebar from './getSidebar';
 import gitIcon from './assets/GitHub-Mark-32px.png';
 import showForm from './showForm';
 import getNavbar from './getNavbar';
-import { PROJECT_LIBRARY } from './projectLibrary';
+import pullLibrary, {PROJECT_LIBRARY} from './projectLibrary';
+import pushLibrary from './pushLibrary';
 
 /**
  * function to create home page elements and layout
  * @returns {HTMLDivElement} website home page
  */
 export default function homePage() {
+    pullLibrary();
     //create div container
     let page = document.createElement('div');
     page.classList.add("page");
@@ -17,7 +19,9 @@ export default function homePage() {
     let header = document.createElement('div');
     header.classList.add("header");
     //initialize project header
+
     const myProjects = PROJECT_LIBRARY;
+    // console.log(myProjects)
     var project = PROJECT_LIBRARY[0];
     var heading = document.createElement('h1');
     heading.id = "current-project"
@@ -53,6 +57,7 @@ export default function homePage() {
             header.removeChild(header.firstChild);
             if (input.value) {
                 project.name = input.value;
+                pushLibrary();
             }
             heading.innerHTML = project.name;
             header.appendChild(heading);
@@ -124,6 +129,6 @@ export default function homePage() {
     page.appendChild(container);
     page.appendChild(addContainer);
     page.appendChild(footer);
-
+    
     return page;
 }

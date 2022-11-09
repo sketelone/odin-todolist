@@ -3,6 +3,7 @@ import switchProject from './switchProject';
 import addProject from './addProject';
 import showProject from './showProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
+import pushLibrary from './pushLibrary';
 
 /**
  * function to create the project navigation bar
@@ -47,7 +48,8 @@ export default function getNavbar() {
  */
 function getNewProject(i) {
     //construct new project
-    var newProject = addProject("New Project " + i);
+    var newProject = addProject("New Project " + i, PROJECT_LIBRARY);
+    pushLibrary();
 
     //set and show current project
     var heading = document.querySelector('#current-project')

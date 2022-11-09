@@ -2,6 +2,7 @@ import { isPast, isToday, parseISO } from "date-fns";
 import addTodo from "./addTodo";
 import showProject from "./showProject";
 import {PROJECT_LIBRARY} from "./projectLibrary";
+import pushLibrary from "./pushLibrary";
 
 /**
  * function to get form and update page
@@ -46,6 +47,7 @@ export default function getForm() {
                 }
             })
             addTodo(title.value, dueDate.value, notes.value, project);
+            pushLibrary();
             showProject(project)
             form.reset();
             form.style.display = "none";

@@ -1,4 +1,3 @@
-
 /**
  * function to construct new todo and add it to the project
  * @param {string} title - todo title
@@ -24,8 +23,8 @@ export default function addTodo(title, dueDate, notes, project) {
 function Todo(title, dueDate, notes, project) {
     this.title = title;
     this.dueDate = dueDate;
-    this.priority = false;
     this.notes = notes;
     this.project = project;
+    this.priority = false;
     this.status = false;
 }
