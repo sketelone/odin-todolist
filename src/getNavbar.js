@@ -56,7 +56,6 @@ function getNewProject() {
     }
     
     //construct new project
-    console.log(index)
     var newProject = addProject("New Project " + index, PROJECT_LIBRARY);
     pushLibrary();
 
@@ -72,6 +71,4 @@ function getNewProject() {
     navContainer.removeChild(navContainer.firstChild)
     let projectNav = getNavbar();
     navContainer.appendChild(projectNav);
-    console.log(index)
-
 }
