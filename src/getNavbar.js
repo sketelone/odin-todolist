@@ -5,7 +5,6 @@ import showProject from './showProject';
 import { PROJECT_LIBRARY } from './projectLibrary';
 import pushLibrary from './pushLibrary';
 
-let index = 1;
 /**
  * function to create the project navigation bar
  * @returns {HTMLDivElement} div containing project nav elements
@@ -31,8 +30,7 @@ export default function getNavbar() {
     buttons.forEach(button => {
             button.addEventListener('click', function(e) {
                 if (button.innerHTML == "+") {
-                    getNewProject(index);
-                    index++;
+                    getNewProject();
               } else {
                     switchProject(e);
                 }
@@ -46,10 +44,19 @@ export default function getNavbar() {
 
 /**
  * function to construct and show new project
- * @param {num} index index 
  */
-function getNewProject(index) {
+function getNewProject() {
+    var index = 1;
+    var temp = "";
+    PROJECT_LIBRARY.forEach(proj => {
+        temp = temp + proj.name;
+    })
+    while (temp.includes(index.toString())) {
+        index++;
+    }
+    
     //construct new project
+    console.log(index)
     var newProject = addProject("New Project " + index, PROJECT_LIBRARY);
     pushLibrary();
 
