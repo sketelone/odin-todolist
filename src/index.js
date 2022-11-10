@@ -1,5 +1,5 @@
 import './style.css';
-import 'material-symbols';
+import 'material-symbols/outlined.css';
 import homePage from './homePage';
 import getForm from './getForm';
 import showProject from './showProject';
