@@ -1,5 +1,4 @@
 import addProject from "./addProject";
-import addTodo from "./addTodo";
 
 /**
  * initialize global constants project library and stored library
@@ -18,33 +17,7 @@ export default function pullLibrary() {
             var keys = Object.keys(localStorage);
             keys.sort();
             for (var i = 0; i<localStorage.length; i++) {
-                var list = localStorage.getItem(keys[i]).split(";,");
-                for (var j=0; j<list.length; j++) {
-                    list[j] = list[j].replace(";", "");
-                }
-                if (list.length > 1) {
-                    var project = list.shift();
-                } else {
-                    project = list;
-                    list = [];
-                }
-                var newProject = addProject(project, STORED_LIBRARY);
-                if (list) {
-                    list.forEach(todo => {
-                        var temp = todo.split(",");
-                        var newTodo = addTodo(temp[0], temp[1], temp[2], newProject);
-                        if (temp[4] == "true") {
-                            newTodo.priority = true;
-                        } else {
-                            newTodo.priority = false;
-                        }
-                        if (temp[5] == "true") {
-                            newTodo.status = true;
-                        } else {
-                            newTodo.status = false;
-                        }
-                    })   
-                }
+                STORED_LIBRARY[i] = JSON.parse(localStorage.getItem(keys[i]));
             }
             PROJECT_LIBRARY = STORED_LIBRARY;
         }
